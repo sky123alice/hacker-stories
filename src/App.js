@@ -1,20 +1,127 @@
 import logo from './logo.svg';
 import './App.css';
 
-function getTitle(title){
-  return title;
-}
+const list = [
+  {
+    title: 'React',
+    url: 'https://reactjs.org/',
+    author: 'Jordan Walke',
+    num_comments: 3,
+    points: 4,
+    objectID: 0,
+  },
+  {
+    title: 'Redux',
+    url: 'https://redux.js.org/',
+    author: 'Dan Abramov,  Andrew Clark',
+    num_comments: 2,
+    points: 5,
+    objectID: 1,
+  }
+
+];
+
+// function List(){
+//   return (
+//     <ul>  
+//         {list.map(function(item){
+//           return (
+//             <li key={item.objectID}>
+//               <span>
+//                 <a href={item.url}>{item.title}</a>
+//               </span>
+//               <span>{item.author}</span>
+//               <span>{item.num_comments}</span>
+//               <span>{item.points}</span>
+//             </li>
+//           );
+//         })}
+//       </ul>
+//   );
+// }
 
 
-function App() {
-  return (
+// let List = () => {
+//   return(
+//     <ul>  
+//         {list.map(function(item){
+//           return (
+//             <li key={item.objectID}>
+//               <span>
+//                 <a href={item.url}>{item.title}</a>
+//               </span>
+//               <span>{item.author}</span>
+//               <span>{item.num_comments}</span>
+//               <span>{item.points}</span>
+//             </li>
+//           );
+//         })}
+//       </ul>
+//   );
+// }
+
+
+let List = () => (//no curly brackets and only parenthesis so signify it's one element
+    <ul>  
+        {list.map(function(item){
+          return (
+            <li key={item.objectID}>
+              <span>
+                <a href={item.url}>{item.title}</a>
+              </span>
+              <span>{item.author}</span>
+              <span>{item.num_comments}</span>
+              <span>{item.points}</span>
+            </li>
+          );
+        })}
+      </ul>
+  );
+
+// function List(){
+//   return (
+//     <ul>  
+//         {list.map(function(item){
+//           return (
+//             <li key={item.objectID}>
+//               <span>
+//                 <a href={item.url}>{item.title}</a>
+//               </span>
+//               <span>{item.author}</span>
+//               <span>{item.num_comments}</span>
+//               <span>{item.points}</span>
+//             </li>
+//           );
+//         })}
+//       </ul>
+//   );
+// }
+
+function Search(){
+
+  return(
     <div>
-      <h1>Hello {getTitle('React')}</h1>
-
-      <label htmlFor="search">Search: </label>
-      <input id="search" type="text" />
+    <label htmlFor="search">Search: </label>
+    <input id="search" type="text" />
     </div>
   );
+}
+
+function App() {
+  
+
+  return (
+    <div>
+      <h1>My Hacker Stories</h1>
+      <Search />
+      <hr /> {/*self closing tag, look into hr*/}
+      <List /> {/*look into this syntax calling List*/}
+    </div>
+  );
+}
+
+function getArea(height,width){
+  return height*width;
 }
 
 export default App;
